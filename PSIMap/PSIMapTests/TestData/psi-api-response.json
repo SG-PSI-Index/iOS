@@ -1,0 +1,153 @@
+{
+    "region_metadata": [
+        {
+            "name": "west",
+            "label_location": {
+                "latitude": 1.35735,
+                "longitude": 103.7
+            }
+        },
+        {
+            "name": "national",
+            "label_location": {
+                "latitude": 0,
+                "longitude": 0
+            }
+        },
+        {
+            "name": "east",
+            "label_location": {
+                "latitude": 1.35735,
+                "longitude": 103.94
+            }
+        },
+        {
+            "name": "central",
+            "label_location": {
+                "latitude": 1.35735,
+                "longitude": 103.82
+            }
+        },
+        {
+            "name": "south",
+            "label_location": {
+                "latitude": 1.29587,
+                "longitude": 103.82
+            }
+        },
+        {
+            "name": "north",
+            "label_location": {
+                "latitude": 1.41803,
+                "longitude": 103.82
+            }
+        }
+    ],
+    "items": [
+        {
+            "timestamp": "2019-10-27T23:00:00+08:00",
+            "update_timestamp": "2019-10-27T23:08:52+08:00",
+            "readings": {
+                "o3_sub_index": {
+                    "west": 13,
+                    "national": 21,
+                    "east": 21,
+                    "central": 19,
+                    "south": 17,
+                    "north": 21
+                },
+                "pm10_twenty_four_hourly": {
+                    "west": 20,
+                    "national": 32,
+                    "east": 29,
+                    "central": 22,
+                    "south": 32,
+                    "north": 25
+                },
+                "pm10_sub_index": {
+                    "west": 20,
+                    "national": 32,
+                    "east": 29,
+                    "central": 22,
+                    "south": 32,
+                    "north": 25
+                },
+                "co_sub_index": {
+                    "west": 5,
+                    "national": 8,
+                    "east": 8,
+                    "central": 3,
+                    "south": 6,
+                    "north": 4
+                },
+                "pm25_twenty_four_hourly": {
+                    "west": 8,
+                    "national": 16,
+                    "east": 16,
+                    "central": 14,
+                    "south": 12,
+                    "north": 15
+                },
+                "so2_sub_index": {
+                    "west": 4,
+                    "national": 8,
+                    "east": 7,
+                    "central": 5,
+                    "south": 8,
+                    "north": 5
+                },
+                "co_eight_hour_max": {
+                    "west": 0.5,
+                    "national": 0.8,
+                    "east": 0.8,
+                    "central": 0.31,
+                    "south": 0.61,
+                    "north": 0.43
+                },
+                "no2_one_hour_max": {
+                    "west": 27,
+                    "national": 62,
+                    "east": 35,
+                    "central": 49,
+                    "south": 62,
+                    "north": 47
+                },
+                "so2_twenty_four_hourly": {
+                    "west": 6,
+                    "national": 13,
+                    "east": 11,
+                    "central": 8,
+                    "south": 13,
+                    "north": 8
+                },
+                "pm25_sub_index": {
+                    "west": 34,
+                    "national": 55,
+                    "east": 55,
+                    "central": 54,
+                    "south": 51,
+                    "north": 54
+                },
+                "psi_twenty_four_hourly": {
+                    "west": 34,
+                    "national": 55,
+                    "east": 55,
+                    "central": 54,
+                    "south": 51,
+                    "north": 54
+                },
+                "o3_eight_hour_max": {
+                    "west": 30,
+                    "national": 51,
+                    "east": 51,
+                    "central": 44,
+                    "south": 40,
+                    "north": 48
+                }
+            }
+        }
+    ],
+    "api_info": {
+        "status": "healthy"
+    }
+}

@@ -13,8 +13,13 @@
 		9FCC96E42365BBDE00E1B402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E22365BBDE00E1B402 /* Main.storyboard */; };
 		9FCC96E62365BBE200E1B402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E52365BBE200E1B402 /* Assets.xcassets */; };
 		9FCC96E92365BBE200E1B402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E72365BBE200E1B402 /* LaunchScreen.storyboard */; };
-		9FCC96F42365BBE200E1B402 /* PSIMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96F32365BBE200E1B402 /* PSIMapTests.swift */; };
 		9FCC96FF2365BBE200E1B402 /* PSIMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96FE2365BBE200E1B402 /* PSIMapUITests.swift */; };
+		9FCC970E2365D44100E1B402 /* psi-api-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC970D2365D44100E1B402 /* psi-api-response.json */; };
+		9FCC97142365D4B100E1B402 /* PSIAPIServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC97132365D4B100E1B402 /* PSIAPIServiceProtocols.swift */; };
+		9FCC97162365D60C00E1B402 /* PSIAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC97152365D60C00E1B402 /* PSIAPIResponse.swift */; };
+		9FCC97192365DBAC00E1B402 /* PSIAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC97182365DBAC00E1B402 /* PSIAPIService.swift */; };
+		9FCC971D2365E15800E1B402 /* PSIAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC971C2365E15800E1B402 /* PSIAPIServiceTests.swift */; };
+		9FCC97202365E82100E1B402 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC971F2365E82100E1B402 /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +49,16 @@
 		9FCC96E82365BBE200E1B402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FCC96EA2365BBE200E1B402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FCC96EF2365BBE200E1B402 /* PSIMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSIMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FCC96F32365BBE200E1B402 /* PSIMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIMapTests.swift; sourceTree = "<group>"; };
 		9FCC96F52365BBE200E1B402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FCC96FA2365BBE200E1B402 /* PSIMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSIMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCC96FE2365BBE200E1B402 /* PSIMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIMapUITests.swift; sourceTree = "<group>"; };
 		9FCC97002365BBE200E1B402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FCC970D2365D44100E1B402 /* psi-api-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "psi-api-response.json"; sourceTree = "<group>"; };
+		9FCC97132365D4B100E1B402 /* PSIAPIServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIServiceProtocols.swift; sourceTree = "<group>"; };
+		9FCC97152365D60C00E1B402 /* PSIAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIResponse.swift; sourceTree = "<group>"; };
+		9FCC97182365DBAC00E1B402 /* PSIAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIService.swift; sourceTree = "<group>"; };
+		9FCC971C2365E15800E1B402 /* PSIAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIServiceTests.swift; sourceTree = "<group>"; };
+		9FCC971F2365E82100E1B402 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +109,15 @@
 		9FCC96DB2365BBDE00E1B402 /* PSIMap */ = {
 			isa = PBXGroup;
 			children = (
+				9FCC96EA2365BBE200E1B402 /* Info.plist */,
 				9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */,
 				9FCC96DE2365BBDE00E1B402 /* SceneDelegate.swift */,
 				9FCC96E02365BBDE00E1B402 /* ViewController.swift */,
-				9FCC96E22365BBDE00E1B402 /* Main.storyboard */,
 				9FCC96E52365BBE200E1B402 /* Assets.xcassets */,
 				9FCC96E72365BBE200E1B402 /* LaunchScreen.storyboard */,
-				9FCC96EA2365BBE200E1B402 /* Info.plist */,
+				9FCC96E22365BBDE00E1B402 /* Main.storyboard */,
+				9FCC970F2365D46300E1B402 /* Scenes */,
+				9FCC97102365D47900E1B402 /* Services */,
 			);
 			path = PSIMap;
 			sourceTree = "<group>";
@@ -113,8 +125,10 @@
 		9FCC96F22365BBE200E1B402 /* PSIMapTests */ = {
 			isa = PBXGroup;
 			children = (
-				9FCC96F32365BBE200E1B402 /* PSIMapTests.swift */,
 				9FCC96F52365BBE200E1B402 /* Info.plist */,
+				9FCC970C2365D42300E1B402 /* TestData */,
+				9FCC97172365D8BC00E1B402 /* Tests */,
+				9FCC971E2365E7FD00E1B402 /* Utils */,
 			);
 			path = PSIMapTests;
 			sourceTree = "<group>";
@@ -126,6 +140,71 @@
 				9FCC97002365BBE200E1B402 /* Info.plist */,
 			);
 			path = PSIMapUITests;
+			sourceTree = "<group>";
+		};
+		9FCC970C2365D42300E1B402 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC970D2365D44100E1B402 /* psi-api-response.json */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		9FCC970F2365D46300E1B402 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9FCC97102365D47900E1B402 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC97122365D49200E1B402 /* PSIAPIService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9FCC97122365D49200E1B402 /* PSIAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC97152365D60C00E1B402 /* PSIAPIResponse.swift */,
+				9FCC97182365DBAC00E1B402 /* PSIAPIService.swift */,
+				9FCC97132365D4B100E1B402 /* PSIAPIServiceProtocols.swift */,
+			);
+			path = PSIAPIService;
+			sourceTree = "<group>";
+		};
+		9FCC97172365D8BC00E1B402 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC971A2365E14000E1B402 /* Services */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9FCC971A2365E14000E1B402 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC971B2365E14700E1B402 /* PSIAPIService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9FCC971B2365E14700E1B402 /* PSIAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC971C2365E15800E1B402 /* PSIAPIServiceTests.swift */,
+			);
+			path = PSIAPIService;
+			sourceTree = "<group>";
+		};
+		9FCC971E2365E7FD00E1B402 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC971F2365E82100E1B402 /* MockURLProtocol.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FCC970E2365D44100E1B402 /* psi-api-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FCC97162365D60C00E1B402 /* PSIAPIResponse.swift in Sources */,
 				9FCC96E12365BBDE00E1B402 /* ViewController.swift in Sources */,
 				9FCC96DD2365BBDE00E1B402 /* AppDelegate.swift in Sources */,
 				9FCC96DF2365BBDE00E1B402 /* SceneDelegate.swift in Sources */,
+				9FCC97142365D4B100E1B402 /* PSIAPIServiceProtocols.swift in Sources */,
+				9FCC97192365DBAC00E1B402 /* PSIAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FCC96F42365BBE200E1B402 /* PSIMapTests.swift in Sources */,
+				9FCC97202365E82100E1B402 /* MockURLProtocol.swift in Sources */,
+				9FCC971D2365E15800E1B402 /* PSIAPIServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
