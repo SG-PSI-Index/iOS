@@ -70,6 +70,21 @@ extension MapPresenterTests {
         verify(viewMock).showPSIIndex(with: matcher)
     }
 
+    func test_presentData_withValidResponse_shouldExcludeZeroCoordinates() {
+        // Act
+        subject.presentData(with: mockAPIResponse)
+
+        // Assert
+        let matcher = ParameterMatcher <[MapPSIIndexItem]> { param in
+            // Simply check whether the item of east exists
+            // Referring to TestData/psi-api-response.json
+            return !param.contains { item -> Bool in
+                return item.latitude == 0 && item.longitude == 0
+            }
+        }
+        verify(viewMock).showPSIIndex(with: matcher)
+    }
+
 }
 
 // MARK: - Test - presentError()

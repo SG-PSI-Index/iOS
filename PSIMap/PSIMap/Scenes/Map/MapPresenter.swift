@@ -22,6 +22,10 @@ class MapPresenter: MapPresenterProtocol {
                     return nil
             }
 
+            if region.labelLocation.longitude == 0 && region.labelLocation.latitude == 0 {
+                return nil
+            }
+
             return MapPSIIndexItem(
                 longitude: region.labelLocation.longitude,
                 latitude: region.labelLocation.latitude,
