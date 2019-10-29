@@ -1,0 +1,19 @@
+# Podfile
+
+use_frameworks!
+platform :ios, '13.1'
+
+pod 'SwiftLint', '0.36.0'
+
+target "PSIMap" do
+  # Normal libraries
+
+  abstract_target 'Tests' do
+    target "PSIMapTests"
+    target "PSIMapUITests"
+
+    pod 'Quick', '2.2.0'
+    pod 'Nimble', '8.0.4'
+    pod 'Cuckoo', '1.2.0'
+  end
+end

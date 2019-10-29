@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155431565B3095D0C860F74F /* Pods_PSIMap_Tests_PSIMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */; };
+		8CE7DB5217E90749E52B9486 /* Pods_PSIMap_Tests_PSIMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0FF1742442A3606F8DAB1 /* Pods_PSIMap_Tests_PSIMapUITests.framework */; };
 		9FCC96DD2365BBDE00E1B402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */; };
 		9FCC96DF2365BBDE00E1B402 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96DE2365BBDE00E1B402 /* SceneDelegate.swift */; };
 		9FCC96E12365BBDE00E1B402 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96E02365BBDE00E1B402 /* ViewController.swift */; };
@@ -20,6 +22,9 @@
 		9FCC97192365DBAC00E1B402 /* PSIAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC97182365DBAC00E1B402 /* PSIAPIService.swift */; };
 		9FCC971D2365E15800E1B402 /* PSIAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC971C2365E15800E1B402 /* PSIAPIServiceTests.swift */; };
 		9FCC97202365E82100E1B402 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC971F2365E82100E1B402 /* MockURLProtocol.swift */; };
+		9FF680B82367E19300B4F67C /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680B72367E19300B4F67C /* GeneratedMocks.swift */; };
+		9FF680BB2367EBF000B4F67C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9FF680BA2367EBF000B4F67C /* .swiftlint.yml */; };
+		F0F71305B8B1CB91E9D19B9B /* Pods_PSIMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E27B9914FB0E99921B48E1 /* Pods_PSIMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19C0FF1742442A3606F8DAB1 /* Pods_PSIMap_Tests_PSIMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap_Tests_PSIMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		222EA4D9714D8BDCB1C04866 /* Pods-PSIMap-Tests-PSIMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapUITests.release.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4009A9C5E14FB4ACA272F992 /* Pods-PSIMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap/Pods-PSIMap.debug.xcconfig"; sourceTree = "<group>"; };
+		6451CEEBD3A0ABD5C2500A45 /* Pods-PSIMap-Tests-PSIMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapTests.release.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		7A768665D3A2D26B82B02B1B /* Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap_Tests_PSIMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FB332ED2367E085000E4294 /* generate_mocks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_mocks.sh; sourceTree = "<group>"; };
 		9FCC96D92365BBDE00E1B402 /* PSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FCC96DE2365BBDE00E1B402 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +71,11 @@
 		9FCC97182365DBAC00E1B402 /* PSIAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIService.swift; sourceTree = "<group>"; };
 		9FCC971C2365E15800E1B402 /* PSIAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSIAPIServiceTests.swift; sourceTree = "<group>"; };
 		9FCC971F2365E82100E1B402 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		9FF680B72367E19300B4F67C /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		9FF680BA2367EBF000B4F67C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C9FC04472B93D804408162E6 /* Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E39761D7C212BB42F59E83EE /* Pods-PSIMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap.release.xcconfig"; path = "Target Support Files/Pods-PSIMap/Pods-PSIMap.release.xcconfig"; sourceTree = "<group>"; };
+		E8E27B9914FB0E99921B48E1 /* Pods_PSIMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F71305B8B1CB91E9D19B9B /* Pods_PSIMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155431565B3095D0C860F74F /* Pods_PSIMap_Tests_PSIMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,19 +99,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE7DB5217E90749E52B9486 /* Pods_PSIMap_Tests_PSIMapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A127308D4918756BC8728F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8E27B9914FB0E99921B48E1 /* Pods_PSIMap.framework */,
+				92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */,
+				19C0FF1742442A3606F8DAB1 /* Pods_PSIMap_Tests_PSIMapUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CE593611310E064F59BE48F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4009A9C5E14FB4ACA272F992 /* Pods-PSIMap.debug.xcconfig */,
+				E39761D7C212BB42F59E83EE /* Pods-PSIMap.release.xcconfig */,
+				7A768665D3A2D26B82B02B1B /* Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig */,
+				6451CEEBD3A0ABD5C2500A45 /* Pods-PSIMap-Tests-PSIMapTests.release.xcconfig */,
+				C9FC04472B93D804408162E6 /* Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig */,
+				222EA4D9714D8BDCB1C04866 /* Pods-PSIMap-Tests-PSIMapUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9FB332EC2367E065000E4294 /* BuildScripts */ = {
+			isa = PBXGroup;
+			children = (
+				9FB332ED2367E085000E4294 /* generate_mocks.sh */,
+			);
+			path = BuildScripts;
+			sourceTree = "<group>";
+		};
 		9FCC96D02365BBDD00E1B402 = {
 			isa = PBXGroup;
 			children = (
+				9FF680BA2367EBF000B4F67C /* .swiftlint.yml */,
 				9FCC96DB2365BBDE00E1B402 /* PSIMap */,
 				9FCC96F22365BBE200E1B402 /* PSIMapTests */,
 				9FCC96FD2365BBE200E1B402 /* PSIMapUITests */,
+				9FB332EC2367E065000E4294 /* BuildScripts */,
 				9FCC96DA2365BBDE00E1B402 /* Products */,
+				4CE593611310E064F59BE48F /* Pods */,
+				1A127308D4918756BC8728F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +180,7 @@
 		9FCC96F22365BBE200E1B402 /* PSIMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				9FF680B72367E19300B4F67C /* GeneratedMocks.swift */,
 				9FCC96F52365BBE200E1B402 /* Info.plist */,
 				9FCC970C2365D42300E1B402 /* TestData */,
 				9FCC97172365D8BC00E1B402 /* Tests */,
@@ -214,9 +270,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FCC97032365BBE200E1B402 /* Build configuration list for PBXNativeTarget "PSIMap" */;
 			buildPhases = (
+				FD1DC30DB66AC08017257509 /* [CP] Check Pods Manifest.lock */,
 				9FCC96D52365BBDD00E1B402 /* Sources */,
 				9FCC96D62365BBDD00E1B402 /* Frameworks */,
 				9FCC96D72365BBDD00E1B402 /* Resources */,
+				9FF680B62367E11200B4F67C /* Run Script (Generate Mocks) */,
+				9FF680B92367EB5C00B4F67C /* Run Script (SwiftLint) */,
 			);
 			buildRules = (
 			);
@@ -231,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FCC97062365BBE200E1B402 /* Build configuration list for PBXNativeTarget "PSIMapTests" */;
 			buildPhases = (
+				1FAE2F42BC1B3132718FFAC4 /* [CP] Check Pods Manifest.lock */,
 				9FCC96EB2365BBE200E1B402 /* Sources */,
 				9FCC96EC2365BBE200E1B402 /* Frameworks */,
 				9FCC96ED2365BBE200E1B402 /* Resources */,
+				396CB8A6EE8A6B5229C7F0BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FCC97092365BBE200E1B402 /* Build configuration list for PBXNativeTarget "PSIMapUITests" */;
 			buildPhases = (
+				0C9ED908D9B37AAD987B0041 /* [CP] Check Pods Manifest.lock */,
 				9FCC96F62365BBE200E1B402 /* Sources */,
 				9FCC96F72365BBE200E1B402 /* Frameworks */,
 				9FCC96F82365BBE200E1B402 /* Resources */,
+				91C07C7AAA4016E9C283703C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FF680BB2367EBF000B4F67C /* .swiftlint.yml in Resources */,
 				9FCC96E92365BBE200E1B402 /* LaunchScreen.storyboard in Resources */,
 				9FCC96E62365BBE200E1B402 /* Assets.xcassets in Resources */,
 				9FCC96E42365BBDE00E1B402 /* Main.storyboard in Resources */,
@@ -334,6 +398,145 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C9ED908D9B37AAD987B0041 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PSIMap-Tests-PSIMapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FAE2F42BC1B3132718FFAC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PSIMap-Tests-PSIMapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		396CB8A6EE8A6B5229C7F0BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91C07C7AAA4016E9C283703C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FF680B62367E11200B4F67C /* Run Script (Generate Mocks) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (Generate Mocks)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./BuildScripts/generate_mocks.sh\n";
+		};
+		9FF680B92367EB5C00B4F67C /* Run Script (SwiftLint) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (SwiftLint)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		FD1DC30DB66AC08017257509 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PSIMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9FCC96D52365BBDD00E1B402 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FCC97202365E82100E1B402 /* MockURLProtocol.swift in Sources */,
+				9FF680B82367E19300B4F67C /* GeneratedMocks.swift in Sources */,
 				9FCC971D2365E15800E1B402 /* PSIAPIServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +720,7 @@
 		};
 		9FCC97042365BBE200E1B402 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4009A9C5E14FB4ACA272F992 /* Pods-PSIMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -533,6 +738,7 @@
 		};
 		9FCC97052365BBE200E1B402 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E39761D7C212BB42F59E83EE /* Pods-PSIMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,8 +756,8 @@
 		};
 		9FCC97072365BBE200E1B402 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A768665D3A2D26B82B02B1B /* Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSIMapTests/Info.plist;
@@ -571,8 +777,8 @@
 		};
 		9FCC97082365BBE200E1B402 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6451CEEBD3A0ABD5C2500A45 /* Pods-PSIMap-Tests-PSIMapTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSIMapTests/Info.plist;
@@ -592,8 +798,8 @@
 		};
 		9FCC970A2365BBE200E1B402 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9FC04472B93D804408162E6 /* Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSIMapUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,8 +817,8 @@
 		};
 		9FCC970B2365BBE200E1B402 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 222EA4D9714D8BDCB1C04866 /* Pods-PSIMap-Tests-PSIMapUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PSIMapUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
