@@ -26,6 +26,8 @@
 		9FF680C42367F18600B4F67C /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680BF2367F18600B4F67C /* MapInteractor.swift */; };
 		9FF680C52367F18600B4F67C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680C02367F18600B4F67C /* MapViewController.swift */; };
 		9FF680C62367F18600B4F67C /* MapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680C12367F18600B4F67C /* MapConfigurator.swift */; };
+		9FF680C92367FD2D00B4F67C /* MapInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680C82367FD2D00B4F67C /* MapInteractorTests.swift */; };
+		9FF680CB236822E700B4F67C /* MapPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF680CA236822E700B4F67C /* MapPresenterTests.swift */; };
 		F0F71305B8B1CB91E9D19B9B /* Pods_PSIMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E27B9914FB0E99921B48E1 /* Pods_PSIMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		9FF680BF2367F18600B4F67C /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		9FF680C02367F18600B4F67C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9FF680C12367F18600B4F67C /* MapConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
+		9FF680C82367FD2D00B4F67C /* MapInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractorTests.swift; sourceTree = "<group>"; };
+		9FF680CA236822E700B4F67C /* MapPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterTests.swift; sourceTree = "<group>"; };
 		C9FC04472B93D804408162E6 /* Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapUITests/Pods-PSIMap-Tests-PSIMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E39761D7C212BB42F59E83EE /* Pods-PSIMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap.release.xcconfig"; path = "Target Support Files/Pods-PSIMap/Pods-PSIMap.release.xcconfig"; sourceTree = "<group>"; };
 		E8E27B9914FB0E99921B48E1 /* Pods_PSIMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +240,7 @@
 		9FCC97172365D8BC00E1B402 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9FF680C72367FD0400B4F67C /* Scenes */,
 				9FCC971A2365E14000E1B402 /* Services */,
 			);
 			path = Tests;
@@ -275,6 +280,15 @@
 				9FF680C12367F18600B4F67C /* MapConfigurator.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		9FF680C72367FD0400B4F67C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9FF680C82367FD2D00B4F67C /* MapInteractorTests.swift */,
+				9FF680CA236822E700B4F67C /* MapPresenterTests.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,6 +588,8 @@
 				9FCC97202365E82100E1B402 /* MockURLProtocol.swift in Sources */,
 				9FF680B82367E19300B4F67C /* GeneratedMocks.swift in Sources */,
 				9FCC971D2365E15800E1B402 /* PSIAPIServiceTests.swift in Sources */,
+				9FF680C92367FD2D00B4F67C /* MapInteractorTests.swift in Sources */,
+				9FF680CB236822E700B4F67C /* MapPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -716,7 +732,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

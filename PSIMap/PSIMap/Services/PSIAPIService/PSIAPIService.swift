@@ -18,10 +18,8 @@ class PSIAPIService: PSIAPIServiceProtocol {
         }
         let task = URLSession.shared.dataTask(with: psiURL) { data, _, _ in
             if let data = data {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
-                    let result = try decoder.decode(PSIAPIResponse.self, from: data)
+                    let result = try PSIAPIResponse.make(jsonData: data)
                     completion(.success(result))
                 } catch {
                     completion(.failure)
