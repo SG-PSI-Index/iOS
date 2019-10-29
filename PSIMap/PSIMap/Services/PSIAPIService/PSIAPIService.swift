@@ -16,7 +16,7 @@ class PSIAPIService: PSIAPIServiceProtocol {
         guard let psiURL = psiURL else {
             return
         }
-        let task = URLSession.shared.dataTask(with: psiURL) { data, response, error in
+        let task = URLSession.shared.dataTask(with: psiURL) { data, _, _ in
             if let data = data {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
