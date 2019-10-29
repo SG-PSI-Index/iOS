@@ -34,9 +34,9 @@ struct PSIAPIResponseRegion: Codable {
 
 struct PSIAPIResponseItem: Codable {
 
-    let updateTimestamp: String
+    let updateTimestamp: Date
 
-    let timestamp: String
+    let timestamp: Date
 
     let readings: PSIReadings
 
@@ -44,46 +44,41 @@ struct PSIAPIResponseItem: Codable {
 
 struct PSIReadings: Codable {
 
-    let psiTwentyFourHourly: PSIReadingByRegion
+    let psiTwentyFourHourly: [String: Double]
 
-    let psiThreeHourly: PSIReadingByRegion?
+    let psiThreeHourly: [String: Double]?
 
-    let pm10SubIndex: PSIReadingByRegion
+    let pm10SubIndex: [String: Double]
 
-    let pm25SubIndex: PSIReadingByRegion
+    let pm25SubIndex: [String: Double]
 
-    let so2SubIndex: PSIReadingByRegion
+    let so2SubIndex: [String: Double]
 
-    let o3SubIndex: PSIReadingByRegion
+    let o3SubIndex: [String: Double]
 
-    let coSubIndex: PSIReadingByRegion
+    let coSubIndex: [String: Double]
 
-    let pm10TwentyFourHourly: PSIReadingByRegion
+    let pm10TwentyFourHourly: [String: Double]
 
-    let pm25TwentyFourHourly: PSIReadingByRegion
+    let pm25TwentyFourHourly: [String: Double]
 
-    let no2OneHourMax: PSIReadingByRegion
+    let no2OneHourMax: [String: Double]
 
-    let so2TwentyFourHourly: PSIReadingByRegion
+    let so2TwentyFourHourly: [String: Double]
 
-    let coEightHourMax: PSIReadingByRegion
+    let coEightHourMax: [String: Double]
 
-    let o3EightHourMax: PSIReadingByRegion
+    let o3EightHourMax: [String: Double]
 
 }
 
-struct PSIReadingByRegion: Codable {
+extension PSIAPIResponse {
 
-    let national: Double
-
-    let north: Double
-
-    let south: Double
-
-    let east: Double
-
-    let west: Double
-
-    let central: Double
+    static func make(jsonData: Data) throws -> Self {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode(self, from: jsonData)
+    }
 
 }

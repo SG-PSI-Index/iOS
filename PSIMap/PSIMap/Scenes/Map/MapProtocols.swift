@@ -16,7 +16,9 @@ struct MapPSIIndexItem {
 
     let name: String
 
-    let value: Int
+    let psiTwentyFourHourly: Double
+
+    let pm25Hourly: Double
 
 }
 

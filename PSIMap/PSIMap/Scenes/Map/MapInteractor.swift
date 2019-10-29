@@ -15,7 +15,16 @@ class MapInteractor: MapInteractorProtocol {
     var apiService: PSIAPIServiceProtocol?
 
     func fetchPSIData() {
-
+        presenter?.presentLoadingState(isLoading: true)
+        apiService?.getPSI { [weak self] result in
+            self?.presenter?.presentLoadingState(isLoading: false)
+            switch result {
+            case .success(let response):
+                self?.presenter?.presentData(with: response)
+            case .failure:
+                self?.presenter?.presentError()
+            }
+        }
     }
 
 }
