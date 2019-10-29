@@ -9,9 +9,9 @@
 import Foundation
 
 protocol PSIAPIServiceProtocol: class {
-    
+
     func getPSI(completion: @escaping (GetPSIResult) -> Void)
-    
+
 }
 
 enum GetPSIResult {
