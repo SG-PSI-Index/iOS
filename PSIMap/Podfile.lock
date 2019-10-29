@@ -1,0 +1,30 @@
+PODS:
+  - Cuckoo (1.2.0):
+    - Cuckoo/Swift (= 1.2.0)
+  - Cuckoo/Swift (1.2.0)
+  - Nimble (8.0.4)
+  - Quick (2.2.0)
+  - SwiftLint (0.36.0)
+
+DEPENDENCIES:
+  - Cuckoo (= 1.2.0)
+  - Nimble (= 8.0.4)
+  - Quick (= 2.2.0)
+  - SwiftLint (= 0.36.0)
+
+SPEC REPOS:
+  trunk:
+    - Cuckoo
+    - Nimble
+    - Quick
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Cuckoo: f5f4e7c308c512cc2dedbdce23f5dc6985cb5173
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  SwiftLint: fc9859e4e1752340664851f667bb1898b9c90114
+
+PODFILE CHECKSUM: f5a4fea594f9e09b379f075a1d1834760abddce4
+
+COCOAPODS: 1.8.4
