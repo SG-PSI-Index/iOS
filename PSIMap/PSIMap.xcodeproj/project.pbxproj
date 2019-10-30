@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		155431565B3095D0C860F74F /* Pods_PSIMap_Tests_PSIMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */; };
 		8CE7DB5217E90749E52B9486 /* Pods_PSIMap_Tests_PSIMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0FF1742442A3606F8DAB1 /* Pods_PSIMap_Tests_PSIMapUITests.framework */; };
+		9F0FC0AE23693658008DF3EE /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FC0AD23693658008DF3EE /* ListItemView.swift */; };
+		9FBB82D323693C5C00ED6266 /* MapDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */; };
 		9FCC96DD2365BBDE00E1B402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */; };
 		9FCC96E62365BBE200E1B402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E52365BBE200E1B402 /* Assets.xcassets */; };
 		9FCC96E92365BBE200E1B402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E72365BBE200E1B402 /* LaunchScreen.storyboard */; };
@@ -56,7 +58,9 @@
 		6451CEEBD3A0ABD5C2500A45 /* Pods-PSIMap-Tests-PSIMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapTests.release.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A768665D3A2D26B82B02B1B /* Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap_Tests_PSIMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F0FC0AD23693658008DF3EE /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		9FB332ED2367E085000E4294 /* generate_mocks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_mocks.sh; sourceTree = "<group>"; };
+		9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsView.swift; sourceTree = "<group>"; };
 		9FCC96D92365BBDE00E1B402 /* PSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FCC96E52365BBE200E1B402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +143,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9F0FC0AB23693628008DF3EE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9F0FC0AC23693635008DF3EE /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9F0FC0AC23693635008DF3EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F0FC0AD23693658008DF3EE /* ListItemView.swift */,
+				9FF680CC2368983B00B4F67C /* MapAnnotationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9FB332EC2367E065000E4294 /* BuildScripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,7 @@
 				9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */,
 				9FCC96E52365BBE200E1B402 /* Assets.xcassets */,
 				9FCC96E72365BBE200E1B402 /* LaunchScreen.storyboard */,
+				9F0FC0AB23693628008DF3EE /* Common */,
 				9FCC970F2365D46300E1B402 /* Scenes */,
 				9FCC97102365D47900E1B402 /* Services */,
 			);
@@ -275,12 +297,12 @@
 		9FF680BC2367F18600B4F67C /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				9FF680CC2368983B00B4F67C /* MapAnnotationView.swift */,
 				9FF680C12367F18600B4F67C /* MapConfigurator.swift */,
 				9FF680BF2367F18600B4F67C /* MapInteractor.swift */,
 				9FF680BE2367F18600B4F67C /* MapPresenter.swift */,
 				9FF680BD2367F18600B4F67C /* MapProtocols.swift */,
 				9FF680C02367F18600B4F67C /* MapViewController.swift */,
+				9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -574,7 +596,9 @@
 			files = (
 				9FF680CD2368983B00B4F67C /* MapAnnotationView.swift in Sources */,
 				9FCC97162365D60C00E1B402 /* PSIAPIResponse.swift in Sources */,
+				9FBB82D323693C5C00ED6266 /* MapDetailsView.swift in Sources */,
 				9FCC96DD2365BBDE00E1B402 /* AppDelegate.swift in Sources */,
+				9F0FC0AE23693658008DF3EE /* ListItemView.swift in Sources */,
 				9FF680C22367F18600B4F67C /* MapProtocols.swift in Sources */,
 				9FF680C62367F18600B4F67C /* MapConfigurator.swift in Sources */,
 				9FCC97142365D4B100E1B402 /* PSIAPIServiceProtocols.swift in Sources */,

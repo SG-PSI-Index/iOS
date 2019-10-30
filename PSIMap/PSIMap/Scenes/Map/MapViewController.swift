@@ -33,16 +33,22 @@ class MapViewController: UIViewController, MapViewProtocol {
     }
 
     func startLoading() {
-
+        DispatchQueue.main.async {
+            self.mainContainerView.refreshControl?.beginRefreshing()
+            self.mainContainerView.isUserInteractionEnabled = false
+        }
     }
 
     func stopLoading() {
-
+        DispatchQueue.main.async {
+            self.mainContainerView.refreshControl?.endRefreshing()
+            self.mainContainerView.isUserInteractionEnabled = true
+        }
     }
 
     // MARK: Private properties
 
-    private var mapView = MKMapView()
+    private let mainContainerView = MapDetailsView()
 
 }
 
@@ -50,18 +56,35 @@ extension MapViewController {
 
     override func loadView() {
         let mainView = UIView(frame: UIScreen.main.bounds)
+        mainView.backgroundColor = .black
+        mainView.tintColor = .lightGray
 
-        mapView.delegate = self
-        mapView.isZoomEnabled = false
-        mapView.isScrollEnabled = false
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mainView.addSubview(mapView)
+        mainContainerView.mapView.delegate = self
+        mainContainerView.refreshControl = UIRefreshControl()
+        mainContainerView.refreshControl?.addTarget(
+            self,
+            action: #selector(performRefresh),
+            for: .valueChanged
+        )
+        mainContainerView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(mainContainerView)
+
         NSLayoutConstraint.activate([
-            mainView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor),
-            mainView.trailingAnchor.constraint(equalTo: mapView.trailingAnchor),
-            mainView.topAnchor.constraint(equalTo: mapView.topAnchor),
-            mainView.bottomAnchor.constraint(equalTo: mapView.bottomAnchor)
+            mainView.leadingAnchor.constraint(equalTo: mainContainerView.leadingAnchor),
+            mainView.trailingAnchor.constraint(equalTo: mainContainerView.trailingAnchor),
+            mainView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: mainContainerView.topAnchor),
+            mainView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: mainContainerView.bottomAnchor)
         ])
+
+        if #available(iOS 13, *) {
+            mainView.overrideUserInterfaceStyle = .dark
+        }
+
+        let nationalPSIView = ListItemView()
+        nationalPSIView.title = "Air Quality Forecast"
+        nationalPSIView.subtitle = "(24h PSI)"
+        nationalPSIView.rightDetails = "--"
+        mainContainerView.additionalViews = [nationalPSIView]
 
         view = mainView
     }
@@ -71,6 +94,10 @@ extension MapViewController {
         interactor?.fetchPSIData()
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 }
 
 // MARK: - Private methods
@@ -78,8 +105,8 @@ extension MapViewController {
 extension MapViewController {
 
     private func showAnnotations(_ annotations: [MKAnnotation]) {
-        mapView.removeAnnotations(mapView.annotations)
-        mapView.addAnnotations(annotations)
+        mainContainerView.mapView.removeAnnotations(mainContainerView.mapView.annotations)
+        mainContainerView.mapView.addAnnotations(annotations)
     }
 
     private func zoomToAnnotations(_ annotations: [MKAnnotation]) {
@@ -90,11 +117,16 @@ extension MapViewController {
             )
             return rect.union(newRect)
         }
-        mapView.setVisibleMapRect(
+        let horizontalPadding = mainContainerView.mapView.frame.width * 0.3 / 2 + 8
+        mainContainerView.mapView.setVisibleMapRect(
             mapRect,
-            edgePadding: UIEdgeInsets(top: 40, left: 60, bottom: 40, right: 60),
+            edgePadding: UIEdgeInsets(top: 40, left: horizontalPadding, bottom: 40, right: horizontalPadding),
             animated: false
         )
+    }
+
+    @objc private func performRefresh() {
+        interactor?.fetchPSIData()
     }
 
 }
@@ -116,7 +148,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         view?.name = psiAnnotation.name
         view?.value = psiAnnotation.value
-        view?.frame.size.width = 110
+        view?.frame.size.width = mapView.frame.width * 0.3
         view?.frame.size.height = view?.systemLayoutSizeFitting(
             UIView.layoutFittingCompressedSize
         ).height ?? 0
