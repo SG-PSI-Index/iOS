@@ -22,14 +22,21 @@ class MapViewController: UIViewController, MapViewProtocol {
         }
     }
 
-    func showNationalAirQuality(_ quality: MapPSIAirQuality) {
+    func showAirQualitySummary(
+        airQuality: MapPSIAirQuality,
+        outdoorActivityAdvise: MapOutdoorActivityAdvise
+    ) {
         DispatchQueue.main.async { [weak self] in
-            let nationalPSIView = ListItemView()
-            nationalPSIView.title = "Air Quality Forecast"
-            nationalPSIView.subtitle = "(24h PSI)"
-            nationalPSIView.rightDetails = quality.indicatorText
-            nationalPSIView.rightDetailsColor = quality.indicatorColor
-            self?.mainContainerView.additionalViews = [nationalPSIView]
+            let airQualityView = ListItemView()
+            airQualityView.title = "Air Quality Forecast"
+            airQualityView.subtitle = "(24h PSI)"
+            airQualityView.rightDetails = airQuality.indicatorText
+            airQualityView.rightDetailsColor = airQuality.indicatorColor
+            let outdoorAdviseView = ListItemView()
+            outdoorAdviseView.title = "Health Advisory"
+            outdoorAdviseView.subtitle = "Outdoor activity (Healthy person)"
+            outdoorAdviseView.rightDetails = outdoorActivityAdvise.description
+            self?.mainContainerView.additionalViews = [airQualityView, outdoorAdviseView]
         }
     }
 
@@ -214,4 +221,22 @@ private extension MapPSIAirQuality {
             return "Hazardous"
         }
     }
+
+}
+
+private extension MapOutdoorActivityAdvise {
+
+    var description: String {
+        switch self {
+        case .normal:
+            return "Normal"
+        case .reduceProlonged:
+            return "Reduce Prolonged"
+        case .avoid:
+            return "Avoid"
+        case .minimise:
+            return "Minimise"
+        }
+    }
+
 }

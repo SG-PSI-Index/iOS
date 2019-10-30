@@ -52,7 +52,12 @@ class MapPresenter: MapPresenterProtocol {
         view?.showPSIIndex(with: itemsWithoutNational)
 
         if let nationalItem = items.first(where: { $0.latitude == 0 && $0.longitude == 0 }) {
-            view?.showNationalAirQuality(nationalItem.psiAirQuality)
+            view?.showAirQualitySummary(
+                airQuality: nationalItem.psiAirQuality,
+                outdoorActivityAdvise: MapOutdoorActivityAdvise.make(
+                    psiValue: Int(nationalItem.psiTwentyFourHourly)
+                )
+            )
         }
     }
 
@@ -65,6 +70,23 @@ class MapPresenter: MapPresenterProtocol {
             view?.startLoading()
         } else {
             view?.stopLoading()
+        }
+    }
+
+}
+
+private extension MapOutdoorActivityAdvise {
+
+    static func make(psiValue: Int) -> Self {
+        switch psiValue {
+        case 0...100:
+            return .normal
+        case 101...200:
+            return .reduceProlonged
+        case 201...300:
+            return .avoid
+        default:
+            return .minimise
         }
     }
 
