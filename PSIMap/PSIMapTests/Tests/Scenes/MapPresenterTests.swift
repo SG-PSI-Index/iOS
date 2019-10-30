@@ -35,6 +35,7 @@ class MapPresenterTests: XCTestCase {
         stub(viewMock) { view in
             when(view).showPSIIndex(with: any()).thenDoNothing()
             when(view).showNationalAirQuality(any()).thenDoNothing()
+            when(view).showRefreshTime(any()).thenDoNothing()
             when(view).showError().thenDoNothing()
             when(view).startLoading().thenDoNothing()
             when(view).stopLoading().thenDoNothing()
@@ -94,6 +95,16 @@ extension MapPresenterTests {
         // Simply check whether the item of east exists
         // Referring to TestData/psi-api-response.json
         verify(viewMock).showNationalAirQuality(equal(to: .moderate))
+    }
+
+    func test_presentData_withLastUpdateTime_shouldShowUpdateTime() {
+        // Act
+        subject.presentData(with: mockAPIResponse)
+
+        // Assert
+        // Record in the API is "2019-10-27T23:08:52+08:00"
+        // Referring to TestData/psi-api-response.json
+        verify(viewMock).showRefreshTime("Oct 27, 2019 at 11:08 PM")
     }
 
 }

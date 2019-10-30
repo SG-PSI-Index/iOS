@@ -15,6 +15,8 @@ class MapDetailsView: UIScrollView {
 
     let mapView = MKMapView()
 
+    let refreshTimeLabel = UILabel()
+
     let titleLabel = UILabel()
 
     var additionalViews = [UIView]() {
@@ -34,7 +36,9 @@ class MapDetailsView: UIScrollView {
 extension MapDetailsView {
 
     override func layoutSubviews() {
+        setupViews()
         setupLayout()
+        setupRefreshTimestamp()
         super.layoutSubviews()
     }
 
@@ -84,15 +88,61 @@ extension MapDetailsView {
             layoutMarginsGuide.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             layoutMarginsGuide.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
         ])
+    }
 
-        setupViews()
+    private func setupRefreshTimestamp() {
+        guard refreshTimeLabel.superview == nil else {
+            return
+        }
+
+        let refreshTimeContainer = UIView()
+        refreshTimeContainer.translatesAutoresizingMaskIntoConstraints = false
+        refreshTimeLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(refreshTimeContainer)
+        refreshTimeContainer.addSubview(refreshTimeLabel)
+
+        NSLayoutConstraint.activate([
+            refreshTimeContainer.leadingAnchor.constraint(equalTo: mapView.leadingAnchor),
+            refreshTimeContainer.trailingAnchor.constraint(equalTo: mapView.trailingAnchor),
+            refreshTimeContainer.bottomAnchor.constraint(equalTo: mapView.bottomAnchor),
+            refreshTimeLabel.leadingAnchor.constraint(
+                equalTo: refreshTimeContainer.leadingAnchor,
+                constant: 8
+            ),
+            refreshTimeLabel.trailingAnchor.constraint(
+                equalTo: refreshTimeContainer.trailingAnchor,
+                constant: -8
+            ),
+            refreshTimeLabel.bottomAnchor.constraint(
+                equalTo: refreshTimeContainer.bottomAnchor,
+                constant: -8
+            ),
+            refreshTimeLabel.topAnchor.constraint(
+                equalTo: refreshTimeContainer.topAnchor,
+                constant: 8
+            )
+        ])
     }
 
     private func setupViews() {
+        guard tabView.superview == nil ||
+            mapView.superview == nil ||
+            titleLabel.superview == nil ||
+            refreshTimeLabel.superview == nil
+            else {
+                return
+        }
+
         backgroundColor = .black
 
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
+
+        refreshTimeLabel.superview?.backgroundColor = UIColor(white: 0.0, alpha: 0.6)
+        refreshTimeLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        refreshTimeLabel.textColor = .white
+        refreshTimeLabel.numberOfLines = 0
+        refreshTimeLabel.textAlignment = .right
 
         titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         titleLabel.textColor = .white

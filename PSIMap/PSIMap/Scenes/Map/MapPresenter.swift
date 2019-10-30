@@ -13,11 +13,12 @@ class MapPresenter: MapPresenterProtocol {
     weak var view: MapViewProtocol?
 
     func presentData(with response: PSIAPIResponse) {
+        let readingItem = response.items.max(by: { $0.updateTimestamp < $1.updateTimestamp })
+
         let items: [MapPSIIndexItem] = response.regionMetadata.map { region -> MapPSIIndexItem? in
             guard
-                let readingItem = response.items.max(by: { $0.updateTimestamp < $1.updateTimestamp }),
-                let psiTwentyFourHourly = readingItem.readings.psiTwentyFourHourly[region.name],
-                let pm25Hourly = readingItem.readings.pm25TwentyFourHourly[region.name]
+                let psiTwentyFourHourly = readingItem?.readings.psiTwentyFourHourly[region.name],
+                let pm25Hourly = readingItem?.readings.pm25TwentyFourHourly[region.name]
                 else {
                     return nil
             }
@@ -53,6 +54,15 @@ class MapPresenter: MapPresenterProtocol {
 
         if let nationalItem = items.first(where: { $0.latitude == 0 && $0.longitude == 0 }) {
             view?.showNationalAirQuality(nationalItem.psiAirQuality)
+        }
+
+        if let updateTimestamp = readingItem?.updateTimestamp {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .short
+            formatter.locale = Locale(identifier: "en")
+            let displayTime = formatter.string(from: updateTimestamp)
+            view?.showRefreshTime(displayTime)
         }
     }
 

@@ -36,6 +36,8 @@ protocol MapViewProtocol: class {
 
     func showNationalAirQuality(_ quality: MapPSIAirQuality)
 
+    func showRefreshTime(_ refreshTimeText: String)
+
     func showError()
 
     func startLoading()
