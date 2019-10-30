@@ -13,46 +13,36 @@ class MapAnnotation: MKPointAnnotation {
 
     var name: String?
 
-    var value: Double?
+    var value: String?
+
+    var valueColor: UIColor?
 
 }
 
 class MapAnnotationView: MKAnnotationView {
 
-    var value: Double? {
-        willSet {
-            guard let newValue = newValue else {
-                valueLabel.text = ""
-                return
-            }
-            valueLabel.text = "\(newValue)"
-        }
-    }
-
-    var name: String? {
-        willSet {
-            guard let newValue = newValue else {
-                nameLabel.text = ""
-                return
-            }
-            nameLabel.text = "\(newValue)".uppercased()
-        }
-    }
-
     private var valueLabel = UILabel()
 
     private var nameLabel = UILabel()
+
+    override var annotation: MKAnnotation? {
+        willSet {
+            configureViews(with: newValue)
+        }
+    }
 
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         setupSubviewsIfNecessary()
         configureStyles()
+        configureViews(with: annotation)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupSubviewsIfNecessary()
         configureStyles()
+        configureViews(with: annotation)
     }
 
     private func setupSubviewsIfNecessary() {
@@ -85,6 +75,15 @@ class MapAnnotationView: MKAnnotationView {
         nameLabel.font = UIFont.systemFont(ofSize: 12)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
+    }
+
+    private func configureViews(with annotation: MKAnnotation?) {
+        guard let annotation = annotation as? MapAnnotation else {
+            return
+        }
+        valueLabel.text = annotation.value
+        valueLabel.textColor = annotation.valueColor ?? .white
+        nameLabel.text = annotation.name?.uppercased()
     }
 
 }

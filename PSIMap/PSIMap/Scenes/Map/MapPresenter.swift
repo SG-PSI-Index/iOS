@@ -22,20 +22,38 @@ class MapPresenter: MapPresenterProtocol {
                     return nil
             }
 
-            if region.labelLocation.longitude == 0 && region.labelLocation.latitude == 0 {
-                return nil
-            }
+            let pSiAirQuality: MapPSIAirQuality = {
+                switch Int(round(psiTwentyFourHourly)) {
+                case 0...50:
+                    return .good
+                case 51...100:
+                    return .moderate
+                case 101...200:
+                    return .unhealthy
+                case 201...300:
+                    return .veryUnhealthy
+                default:
+                    return .hazardous
+                }
+            }()
 
             return MapPSIIndexItem(
                 longitude: region.labelLocation.longitude,
                 latitude: region.labelLocation.latitude,
                 name: region.name,
                 psiTwentyFourHourly: psiTwentyFourHourly,
+                psiAirQuality: pSiAirQuality,
                 pm25Hourly: pm25Hourly
             )
         }
         .compactMap { $0 }
-        view?.showPSIIndex(with: items)
+
+        let itemsWithoutNational = items.filter { $0.latitude != 0 || $0.longitude != 0 }
+        view?.showPSIIndex(with: itemsWithoutNational)
+
+        if let nationalItem = items.first(where: { $0.latitude == 0 && $0.longitude == 0 }) {
+            view?.showNationalAirQuality(nationalItem.psiAirQuality)
+        }
     }
 
     func presentError() {

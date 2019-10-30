@@ -98,10 +98,11 @@ extension ListItemView {
         layer.masksToBounds = false
         titleLabel.textColor = .white
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        titleLabel.numberOfLines = 0
         subtitleLabel.textColor = .white
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        rightDetailsLabel.textColor = .white
-        rightDetailsLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        subtitleLabel.numberOfLines = 0
+        rightDetailsLabel.font = UIFont.preferredFont(forTextStyle: .title2)
     }
 
 }
