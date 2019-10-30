@@ -64,7 +64,7 @@ extension MapPresenterTests {
                     item.longitude == 103.94 &&
                     item.name == "east" &&
                     item.psiTwentyFourHourly == 55 &&
-                    item.pm25Hourly == 55
+                    item.pm25Hourly == 16
             }
         }
         verify(viewMock).showPSIIndex(with: matcher)

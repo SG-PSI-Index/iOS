@@ -100,6 +100,7 @@ extension MapDetailsView {
 
         tabView.insertSegment(withTitle: "24h PSI", at: 0, animated: false)
         tabView.insertSegment(withTitle: "1h PM2.5", at: 1, animated: false)
+        tabView.selectedSegmentIndex = 0
     }
 
 }
