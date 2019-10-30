@@ -31,6 +31,7 @@ class MapPresenter: MapPresenterProtocol {
             formatter.dateStyle = .medium
             formatter.timeStyle = .short
             formatter.locale = Locale(identifier: "en")
+            formatter.timeZone = TimeZone(identifier: "SGT")
             let displayTime = formatter.string(from: updateTimestamp)
             view?.showRefreshTime(displayTime)
         }
