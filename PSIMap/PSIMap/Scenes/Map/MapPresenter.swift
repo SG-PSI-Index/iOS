@@ -13,12 +13,71 @@ class MapPresenter: MapPresenterProtocol {
     weak var view: MapViewProtocol?
 
     func presentData(with response: PSIAPIResponse) {
-        let readingItem = response.items.max(by: { $0.updateTimestamp < $1.updateTimestamp })
+        let displayItems = response.displayItems
+        let itemsWithoutNational = displayItems.filter { $0.latitude != 0 || $0.longitude != 0 }
+        view?.showPSIIndex(with: itemsWithoutNational)
 
-        let items: [MapPSIIndexItem] = response.regionMetadata.map { region -> MapPSIIndexItem? in
+        if let nationalItem = displayItems.first(where: { $0.latitude == 0 && $0.longitude == 0 }) {
+            view?.showAirQualitySummary(
+                airQuality: nationalItem.psiAirQuality,
+                outdoorActivityAdvise: MapOutdoorActivityAdvise.make(
+                    psiValue: Int(nationalItem.psiTwentyFourHourly)
+                )
+            )
+        }
+
+        if let updateTimestamp = response.readingItem?.updateTimestamp {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .short
+            formatter.locale = Locale(identifier: "en")
+            let displayTime = formatter.string(from: updateTimestamp)
+            view?.showRefreshTime(displayTime)
+        }
+    }
+
+    func presentError() {
+        view?.showError()
+    }
+
+    func presentLoadingState(isLoading: Bool) {
+        if isLoading {
+            view?.startLoading()
+        } else {
+            view?.stopLoading()
+        }
+    }
+
+}
+
+private extension MapOutdoorActivityAdvise {
+
+    static func make(psiValue: Int) -> Self {
+        switch psiValue {
+        case 0...100:
+            return .normal
+        case 101...200:
+            return .reduceProlonged
+        case 201...300:
+            return .avoid
+        default:
+            return .minimise
+        }
+    }
+
+}
+
+private extension PSIAPIResponse {
+
+    var readingItem: PSIAPIResponseItem? {
+        return items.max(by: { $0.updateTimestamp < $1.updateTimestamp })
+    }
+
+    var displayItems: [MapPSIIndexItem] {
+        return regionMetadata.map { region -> MapPSIIndexItem? in
             guard
-                let psiTwentyFourHourly = readingItem?.readings.psiTwentyFourHourly[region.name],
-                let pm25Hourly = readingItem?.readings.pm25TwentyFourHourly[region.name]
+                let psiTwentyFourHourly = self.readingItem?.readings.psiTwentyFourHourly[region.name],
+                let pm25Hourly = self.readingItem?.readings.pm25TwentyFourHourly[region.name]
                 else {
                     return nil
             }
@@ -48,34 +107,6 @@ class MapPresenter: MapPresenterProtocol {
             )
         }
         .compactMap { $0 }
-
-        let itemsWithoutNational = items.filter { $0.latitude != 0 || $0.longitude != 0 }
-        view?.showPSIIndex(with: itemsWithoutNational)
-
-        if let nationalItem = items.first(where: { $0.latitude == 0 && $0.longitude == 0 }) {
-            view?.showNationalAirQuality(nationalItem.psiAirQuality)
-        }
-
-        if let updateTimestamp = readingItem?.updateTimestamp {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .short
-            formatter.locale = Locale(identifier: "en")
-            let displayTime = formatter.string(from: updateTimestamp)
-            view?.showRefreshTime(displayTime)
-        }
-    }
-
-    func presentError() {
-        view?.showError()
-    }
-
-    func presentLoadingState(isLoading: Bool) {
-        if isLoading {
-            view?.startLoading()
-        } else {
-            view?.stopLoading()
-        }
     }
 
 }
