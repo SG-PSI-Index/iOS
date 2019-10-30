@@ -96,6 +96,7 @@ extension MapDetailsView {
         }
 
         let refreshTimeContainer = UIView()
+        refreshTimeContainer.backgroundColor = UIColor(white: 0.0, alpha: 0.6)
         refreshTimeContainer.translatesAutoresizingMaskIntoConstraints = false
         refreshTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(refreshTimeContainer)
@@ -138,7 +139,6 @@ extension MapDetailsView {
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
 
-        refreshTimeLabel.superview?.backgroundColor = UIColor(white: 0.0, alpha: 0.6)
         refreshTimeLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
         refreshTimeLabel.textColor = .white
         refreshTimeLabel.numberOfLines = 0
