@@ -34,7 +34,10 @@ class MapPresenterTests: XCTestCase {
 
         stub(viewMock) { view in
             when(view).showPSIIndex(with: any()).thenDoNothing()
-            when(view).showNationalAirQuality(any()).thenDoNothing()
+            when(view).showAirQualitySummary(
+                airQuality: any(),
+                outdoorActivityAdvise: any()
+            ).thenDoNothing()
             when(view).showError().thenDoNothing()
             when(view).startLoading().thenDoNothing()
             when(view).stopLoading().thenDoNothing()
@@ -77,7 +80,6 @@ extension MapPresenterTests {
 
         // Assert
         let matcher = ParameterMatcher <[MapPSIIndexItem]> { param in
-            // Simply check whether the item of east exists
             // Referring to TestData/psi-api-response.json
             return !param.contains { item -> Bool in
                 return item.latitude == 0 && item.longitude == 0
@@ -91,9 +93,17 @@ extension MapPresenterTests {
         subject.presentData(with: mockAPIResponse)
 
         // Assert
-        // Simply check whether the item of east exists
         // Referring to TestData/psi-api-response.json
-        verify(viewMock).showNationalAirQuality(equal(to: .moderate))
+        verify(viewMock).showAirQualitySummary(airQuality: equal(to: .moderate), outdoorActivityAdvise: any())
+    }
+
+    func test_presentData_withNationalReading_shouldShowOutdoorActivityAdvise() {
+        // Act
+        subject.presentData(with: mockAPIResponse)
+
+        // Assert
+        // Referring to TestData/psi-api-response.json
+        verify(viewMock).showAirQualitySummary(airQuality: any(), outdoorActivityAdvise: equal(to: .normal))
     }
 
 }

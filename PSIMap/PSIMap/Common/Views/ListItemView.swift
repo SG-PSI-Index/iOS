@@ -28,7 +28,7 @@ class ListItemView: UIView {
         }
     }
 
-    var rightDetailsColor: UIColor? {
+    var rightDetailsColor: UIColor? = .white {
         willSet {
             rightDetailsLabel.textColor = newValue ?? .white
         }
@@ -45,8 +45,8 @@ class ListItemView: UIView {
 extension ListItemView {
 
     override func layoutSubviews() {
-        setupLayout()
         setupViews()
+        setupLayout()
         super.layoutSubviews()
     }
 
@@ -63,6 +63,7 @@ extension ListItemView {
         addSubview(titleLabel)
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subtitleLabel)
+        rightDetailsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         rightDetailsLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(rightDetailsLabel)
 
@@ -93,6 +94,10 @@ extension ListItemView {
     }
 
     private func setupViews() {
+        guard subviews.isEmpty else {
+            return
+        }
+
         layer.backgroundColor = UIColor(white: 0.15, alpha: 1).cgColor
         layer.cornerRadius = 5.0
         layer.masksToBounds = false
@@ -103,6 +108,7 @@ extension ListItemView {
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         subtitleLabel.numberOfLines = 0
         rightDetailsLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        rightDetailsLabel.textColor = rightDetailsColor
     }
 
 }
