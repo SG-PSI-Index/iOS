@@ -34,6 +34,7 @@ class MapPresenterTests: XCTestCase {
 
         stub(viewMock) { view in
             when(view).showPSIIndex(with: any()).thenDoNothing()
+            when(view).showNationalAirQuality(any()).thenDoNothing()
             when(view).showError().thenDoNothing()
             when(view).startLoading().thenDoNothing()
             when(view).stopLoading().thenDoNothing()
@@ -83,6 +84,16 @@ extension MapPresenterTests {
             }
         }
         verify(viewMock).showPSIIndex(with: matcher)
+    }
+
+    func test_presentData_withNationalReading_shouldShowAirQuality() {
+        // Act
+        subject.presentData(with: mockAPIResponse)
+
+        // Assert
+        // Simply check whether the item of east exists
+        // Referring to TestData/psi-api-response.json
+        verify(viewMock).showNationalAirQuality(equal(to: .moderate))
     }
 
 }

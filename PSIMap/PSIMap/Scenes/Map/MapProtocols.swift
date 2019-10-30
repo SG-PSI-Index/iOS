@@ -18,8 +18,14 @@ struct MapPSIIndexItem {
 
     let psiTwentyFourHourly: Double
 
+    let psiAirQuality: MapPSIAirQuality
+
     let pm25Hourly: Double
 
+}
+
+enum MapPSIAirQuality {
+    case good, moderate, unhealthy, veryUnhealthy, hazardous
 }
 
 protocol MapViewProtocol: class {
@@ -27,6 +33,8 @@ protocol MapViewProtocol: class {
     var interactor: MapInteractorProtocol? { get set }
 
     func showPSIIndex(with items: [MapPSIIndexItem])
+
+    func showNationalAirQuality(_ quality: MapPSIAirQuality)
 
     func showError()
 

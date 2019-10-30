@@ -22,6 +22,17 @@ class MapViewController: UIViewController, MapViewProtocol {
         }
     }
 
+    func showNationalAirQuality(_ quality: MapPSIAirQuality) {
+        DispatchQueue.main.async { [weak self] in
+            let nationalPSIView = ListItemView()
+            nationalPSIView.title = "Air Quality Forecast"
+            nationalPSIView.subtitle = "(24h PSI)"
+            nationalPSIView.rightDetails = quality.indicatorText
+            nationalPSIView.rightDetailsColor = quality.indicatorColor
+            self?.mainContainerView.additionalViews = [nationalPSIView]
+        }
+    }
+
     func showError() {
 
     }
@@ -81,12 +92,6 @@ extension MapViewController {
             mainView.overrideUserInterfaceStyle = .dark
         }
 
-        let nationalPSIView = ListItemView()
-        nationalPSIView.title = "Air Quality Forecast"
-        nationalPSIView.subtitle = "(24h PSI)"
-        nationalPSIView.rightDetails = "--"
-        mainContainerView.additionalViews = [nationalPSIView]
-
         view = mainView
     }
 
@@ -133,11 +138,12 @@ extension MapViewController {
             annotation.name = $0.name
             switch tabIndex {
             case 0:
-                annotation.value = $0.psiTwentyFourHourly
+                annotation.value = String(format: "%.0f", $0.psiTwentyFourHourly)
+                annotation.valueColor = $0.psiAirQuality.indicatorColor
             case 1:
-                annotation.value = $0.pm25Hourly
+                annotation.value = String(format: "%.0f", $0.pm25Hourly)
             default:
-                annotation.value = $0.psiTwentyFourHourly
+                break
             }
             return annotation
         }
@@ -161,18 +167,13 @@ extension MapViewController {
 extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let psiAnnotation = annotation as? MapAnnotation else {
-            return nil
-        }
         let identifier = "PSI"
         var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapAnnotationView
         if view != nil {
-            view?.annotation = psiAnnotation
+            view?.annotation = annotation
         } else {
-            view = MapAnnotationView(annotation: psiAnnotation, reuseIdentifier: identifier)
+            view = MapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         }
-        view?.name = psiAnnotation.name
-        view?.value = psiAnnotation.value
         view?.frame.size.width = mapView.frame.width * 0.3
         view?.frame.size.height = view?.systemLayoutSizeFitting(
             UIView.layoutFittingCompressedSize
@@ -180,4 +181,37 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
 
+}
+
+private extension MapPSIAirQuality {
+
+    var indicatorColor: UIColor {
+        switch self {
+        case .good:
+            return .systemGreen
+        case .moderate:
+            return .systemBlue
+        case .unhealthy:
+            return .systemYellow
+        case .veryUnhealthy:
+            return .systemOrange
+        case .hazardous:
+            return .systemRed
+        }
+    }
+
+    var indicatorText: String {
+        switch self {
+        case .good:
+            return "Good"
+        case .moderate:
+            return "Moderate"
+        case .unhealthy:
+            return "Unhealthy"
+        case .veryUnhealthy:
+            return "Very unhealthy"
+        case .hazardous:
+            return "Hazardous"
+        }
+    }
 }
