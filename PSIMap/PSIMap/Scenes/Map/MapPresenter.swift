@@ -17,7 +17,7 @@ class MapPresenter: MapPresenterProtocol {
             guard
                 let readingItem = response.items.max(by: { $0.updateTimestamp < $1.updateTimestamp }),
                 let psiTwentyFourHourly = readingItem.readings.psiTwentyFourHourly[region.name],
-                let pm25Hourly = readingItem.readings.pm25SubIndex[region.name]
+                let pm25Hourly = readingItem.readings.pm25TwentyFourHourly[region.name]
                 else {
                     return nil
             }

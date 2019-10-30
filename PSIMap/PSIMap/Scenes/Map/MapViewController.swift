@@ -14,17 +14,11 @@ class MapViewController: UIViewController, MapViewProtocol {
     var interactor: MapInteractorProtocol?
 
     func showPSIIndex(with items: [MapPSIIndexItem]) {
-        let annotations: [MKAnnotation] = items.map {
-            let annotation = MapAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
-            annotation.name = $0.name
-            annotation.value = $0.psiTwentyFourHourly
-            return annotation
-        }
+        displayedItems = items
 
         DispatchQueue.main.async { [weak self] in
-            self?.showAnnotations(annotations)
-            self?.zoomToAnnotations(annotations)
+            let tabIndex = self?.mainContainerView.tabView.selectedSegmentIndex ?? 0
+            self?.showAnnotationsWithItems(items, tabIndex: tabIndex)
         }
     }
 
@@ -50,6 +44,8 @@ class MapViewController: UIViewController, MapViewProtocol {
 
     private let mainContainerView = MapDetailsView()
 
+    private var displayedItems = [MapPSIIndexItem]()
+
 }
 
 extension MapViewController {
@@ -64,6 +60,11 @@ extension MapViewController {
         mainContainerView.refreshControl?.addTarget(
             self,
             action: #selector(performRefresh),
+            for: .valueChanged
+        )
+        mainContainerView.tabView.addTarget(
+            self,
+            action: #selector(selectTab),
             for: .valueChanged
         )
         mainContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,8 +126,32 @@ extension MapViewController {
         )
     }
 
+    private func showAnnotationsWithItems(_ items: [MapPSIIndexItem], tabIndex: Int) {
+        let annotations: [MKAnnotation] = items.map {
+            let annotation = MapAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+            annotation.name = $0.name
+            switch tabIndex {
+            case 0:
+                annotation.value = $0.psiTwentyFourHourly
+            case 1:
+                annotation.value = $0.pm25Hourly
+            default:
+                annotation.value = $0.psiTwentyFourHourly
+            }
+            return annotation
+        }
+
+        showAnnotations(annotations)
+        zoomToAnnotations(annotations)
+    }
+
     @objc private func performRefresh() {
         interactor?.fetchPSIData()
+    }
+
+    @objc private func selectTab(_ segmentedControl: UISegmentedControl) {
+        showAnnotationsWithItems(displayedItems, tabIndex: segmentedControl.selectedSegmentIndex)
     }
 
 }
