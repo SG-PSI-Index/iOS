@@ -67,11 +67,11 @@ class MapAnnotationView: MKAnnotationView {
         NSLayoutConstraint.activate([
             valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 6),
             nameLabel.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 4),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6)
         ])
     }
 
@@ -79,10 +79,10 @@ class MapAnnotationView: MKAnnotationView {
         layer.backgroundColor = UIColor.black.withAlphaComponent(0.8).cgColor
         layer.cornerRadius = 10.0
         layer.masksToBounds = false
-        valueLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        valueLabel.font = UIFont.boldSystemFont(ofSize: 16)
         valueLabel.textColor = .white
         valueLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        nameLabel.font = UIFont.systemFont(ofSize: 12)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
     }
