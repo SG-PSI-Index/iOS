@@ -15,9 +15,12 @@ This is only a single screen application. The only screen is implemented with [C
 - CI is set up and checks should pass before merging pull request (although there is only one developer).
 - UI is implemented programmatically (no interface builder) to demostrate the ability to code with auto-layout and every UI feature, and it is easier to review.
 
+## Screenshot
+![Screenshot](screenshot.png)
+
 ## TODO
 Due to time constraint, we did not implement everything.
-- Error handling
+- Localization
 - Integration (UI) test (a single screen application can hardly have a "journey" to test.)
 - Local cache
 - Refactoring
