@@ -44,7 +44,7 @@ class MapViewController: UIViewController, MapViewProtocol {
 
     func showRefreshTime(_ refreshTimeText: String) {
         DispatchQueue.main.async { [weak self] in
-            self?.mainContainerView.refreshTimeLabel.text = "Last updated \(refreshTimeText)"
+            self?.detailView.refreshTimeLabel.text = "Last updated \(refreshTimeText)"
         }
     }
 
