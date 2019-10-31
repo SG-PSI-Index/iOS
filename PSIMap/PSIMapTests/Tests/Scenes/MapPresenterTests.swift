@@ -34,6 +34,7 @@ class MapPresenterTests: XCTestCase {
 
         stub(viewMock) { view in
             when(view).showPSIIndex(with: any()).thenDoNothing()
+            when(view).showRefreshTime(any()).thenDoNothing()
             when(view).showAirQualitySummary(
                 airQuality: any(),
                 outdoorActivityAdvise: any()
@@ -104,6 +105,16 @@ extension MapPresenterTests {
         // Assert
         // Referring to TestData/psi-api-response.json
         verify(viewMock).showAirQualitySummary(airQuality: any(), outdoorActivityAdvise: equal(to: .normal))
+    }
+
+    func test_presentData_withLastUpdateTime_shouldShowUpdateTime() {
+        // Act
+        subject.presentData(with: mockAPIResponse)
+
+        // Assert
+        // Record in the API is "2019-10-27T23:08:52+08:00"
+        // Referring to TestData/psi-api-response.json
+        verify(viewMock).showRefreshTime("Oct 27, 2019 at 11:08 PM")
     }
 
 }

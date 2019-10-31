@@ -43,6 +43,8 @@ protocol MapViewProtocol: class {
         outdoorActivityAdvise: MapOutdoorActivityAdvise
     )
 
+    func showRefreshTime(_ refreshTimeText: String)
+
     func showError()
 
     func startLoading()
