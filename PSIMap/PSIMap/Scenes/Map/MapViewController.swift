@@ -17,8 +17,10 @@ class MapViewController: UIViewController, MapViewProtocol {
         displayedItems = items
 
         DispatchQueue.main.async { [weak self] in
-            let tabIndex = self?.mainContainerView.tabView.selectedSegmentIndex ?? 0
+            let tabIndex = self?.detailView.tabView.selectedSegmentIndex ?? 0
             self?.showAnnotationsWithItems(items, tabIndex: tabIndex)
+            self?.detailView.isHidden = false
+            self?.errorView.isHidden = true
         }
     }
 
@@ -36,31 +38,38 @@ class MapViewController: UIViewController, MapViewProtocol {
             outdoorAdviseView.title = "Health Advisory"
             outdoorAdviseView.subtitle = "Outdoor activity (Healthy person)"
             outdoorAdviseView.rightDetails = outdoorActivityAdvise.description
-            self?.mainContainerView.additionalViews = [airQualityView, outdoorAdviseView]
+            self?.detailView.additionalViews = [airQualityView, outdoorAdviseView]
         }
     }
 
     func showError() {
-
+        DispatchQueue.main.async { [weak self] in
+            self?.errorView.isHidden = false
+            self?.detailView.isHidden = true
+        }
     }
 
     func startLoading() {
-        DispatchQueue.main.async {
-            self.mainContainerView.refreshControl?.beginRefreshing()
-            self.mainContainerView.isUserInteractionEnabled = false
+        DispatchQueue.main.async { [weak self] in
+            self?.detailView.refreshControl?.beginRefreshing()
+            self?.detailView.isUserInteractionEnabled = false
+            self?.errorView.startLoading()
         }
     }
 
     func stopLoading() {
-        DispatchQueue.main.async {
-            self.mainContainerView.refreshControl?.endRefreshing()
-            self.mainContainerView.isUserInteractionEnabled = true
+        DispatchQueue.main.async { [weak self] in
+            self?.detailView.refreshControl?.endRefreshing()
+            self?.detailView.isUserInteractionEnabled = true
+            self?.errorView.stopLoading()
         }
     }
 
     // MARK: Private properties
 
-    private let mainContainerView = MapDetailsView()
+    private let detailView = MapDetailsView()
+
+    private let errorView = MapErrorView()
 
     private var displayedItems = [MapPSIIndexItem]()
 
@@ -69,37 +78,50 @@ class MapViewController: UIViewController, MapViewProtocol {
 extension MapViewController {
 
     override func loadView() {
-        let mainView = UIView(frame: UIScreen.main.bounds)
-        mainView.backgroundColor = .black
-        mainView.tintColor = .lightGray
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = .black
+        view.tintColor = .lightGray
 
-        mainContainerView.mapView.delegate = self
-        mainContainerView.refreshControl = UIRefreshControl()
-        mainContainerView.refreshControl?.addTarget(
+        detailView.mapView.delegate = self
+        detailView.refreshControl = UIRefreshControl()
+        detailView.refreshControl?.addTarget(
             self,
             action: #selector(performRefresh),
             for: .valueChanged
         )
-        mainContainerView.tabView.addTarget(
+        detailView.tabView.addTarget(
             self,
             action: #selector(selectTab),
             for: .valueChanged
         )
-        mainContainerView.translatesAutoresizingMaskIntoConstraints = false
-        mainView.addSubview(mainContainerView)
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(detailView)
+        detailView.isHidden = true
+
+        errorView.errorMessage = "Something went wrong. Please try again."
+        errorView.retryHandler = { [weak self] in
+            self?.performRefresh()
+        }
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(errorView)
+        errorView.isHidden = false
 
         NSLayoutConstraint.activate([
-            mainView.leadingAnchor.constraint(equalTo: mainContainerView.leadingAnchor),
-            mainView.trailingAnchor.constraint(equalTo: mainContainerView.trailingAnchor),
-            mainView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: mainContainerView.topAnchor),
-            mainView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: mainContainerView.bottomAnchor)
+            view.leadingAnchor.constraint(equalTo: detailView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: detailView.trailingAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: detailView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: detailView.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: errorView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: errorView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: errorView.bottomAnchor)
         ])
 
         if #available(iOS 13, *) {
-            mainView.overrideUserInterfaceStyle = .dark
+            view.overrideUserInterfaceStyle = .dark
         }
 
-        view = mainView
+        self.view = view
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -118,8 +140,8 @@ extension MapViewController {
 extension MapViewController {
 
     private func showAnnotations(_ annotations: [MKAnnotation]) {
-        mainContainerView.mapView.removeAnnotations(mainContainerView.mapView.annotations)
-        mainContainerView.mapView.addAnnotations(annotations)
+        detailView.mapView.removeAnnotations(detailView.mapView.annotations)
+        detailView.mapView.addAnnotations(annotations)
     }
 
     private func zoomToAnnotations(_ annotations: [MKAnnotation]) {
@@ -130,8 +152,8 @@ extension MapViewController {
             )
             return rect.union(newRect)
         }
-        let horizontalPadding = mainContainerView.mapView.frame.width * 0.3 / 2 + 8
-        mainContainerView.mapView.setVisibleMapRect(
+        let horizontalPadding = detailView.mapView.frame.width * 0.3 / 2 + 8
+        detailView.mapView.setVisibleMapRect(
             mapRect,
             edgePadding: UIEdgeInsets(top: 40, left: horizontalPadding, bottom: 40, right: horizontalPadding),
             animated: false
