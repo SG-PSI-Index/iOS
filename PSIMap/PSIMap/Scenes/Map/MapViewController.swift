@@ -42,6 +42,12 @@ class MapViewController: UIViewController, MapViewProtocol {
         }
     }
 
+    func showRefreshTime(_ refreshTimeText: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.mainContainerView.refreshTimeLabel.text = "Last updated \(refreshTimeText)"
+        }
+    }
+
     func showError() {
         DispatchQueue.main.async { [weak self] in
             self?.errorView.isHidden = false
