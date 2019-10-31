@@ -10,6 +10,7 @@
 		155431565B3095D0C860F74F /* Pods_PSIMap_Tests_PSIMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */; };
 		8CE7DB5217E90749E52B9486 /* Pods_PSIMap_Tests_PSIMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0FF1742442A3606F8DAB1 /* Pods_PSIMap_Tests_PSIMapUITests.framework */; };
 		9F0FC0AE23693658008DF3EE /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FC0AD23693658008DF3EE /* ListItemView.swift */; };
+		9F119066236B43620076A502 /* MapErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F119065236B43620076A502 /* MapErrorView.swift */; };
 		9FBB82D323693C5C00ED6266 /* MapDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */; };
 		9FCC96DD2365BBDE00E1B402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC96DC2365BBDE00E1B402 /* AppDelegate.swift */; };
 		9FCC96E62365BBE200E1B402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC96E52365BBE200E1B402 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		7A768665D3A2D26B82B02B1B /* Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; path = "Target Support Files/Pods-PSIMap-Tests-PSIMapTests/Pods-PSIMap-Tests-PSIMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		92D6010CE33B72246A489F5C /* Pods_PSIMap_Tests_PSIMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSIMap_Tests_PSIMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0FC0AD23693658008DF3EE /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		9F119065236B43620076A502 /* MapErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapErrorView.swift; sourceTree = "<group>"; };
 		9FB332ED2367E085000E4294 /* generate_mocks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_mocks.sh; sourceTree = "<group>"; };
 		9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsView.swift; sourceTree = "<group>"; };
 		9FCC96D92365BBDE00E1B402 /* PSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +305,7 @@
 				9FF680BD2367F18600B4F67C /* MapProtocols.swift */,
 				9FF680C02367F18600B4F67C /* MapViewController.swift */,
 				9FBB82D223693C5C00ED6266 /* MapDetailsView.swift */,
+				9F119065236B43620076A502 /* MapErrorView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				9FF680C62367F18600B4F67C /* MapConfigurator.swift in Sources */,
 				9FCC97142365D4B100E1B402 /* PSIAPIServiceProtocols.swift in Sources */,
 				9FCC97192365DBAC00E1B402 /* PSIAPIService.swift in Sources */,
+				9F119066236B43620076A502 /* MapErrorView.swift in Sources */,
 				9FF680C42367F18600B4F67C /* MapInteractor.swift in Sources */,
 				9FF680C32367F18600B4F67C /* MapPresenter.swift in Sources */,
 				9FF680C52367F18600B4F67C /* MapViewController.swift in Sources */,
